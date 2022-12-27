@@ -11,7 +11,9 @@ def processInput(i):
 
 num_cores = multiprocessing.cpu_count()
 
-results = Parallel(n_jobs=num_cores)(delayed(processInput)(i) for i in inputs)
+results = Parallel(n_jobs=num_cores-3)\
+    (delayed(processInput)(i) for i in inputs)
+
 print(results)
 
 #%%
